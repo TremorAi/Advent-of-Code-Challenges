@@ -4,7 +4,9 @@ numthing = 0
 listthing = set()
 thang = True
 lines = list(thing)
+count = 0
 while thang:
+    count = count + 1
     for line in lines:
         op = line[0]
         num = line[1:]
@@ -17,6 +19,5 @@ while thang:
         else:
             thang = False
             break
-
-# print(listthing)
+print(count)
 print(numthing)
