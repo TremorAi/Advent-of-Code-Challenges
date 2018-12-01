@@ -1,7 +1,7 @@
 import random
 thing = open("day1/input.txt", "r")
 numthing = 0
-listthing = []
+listthing = set()
 thang = True
 lines = list(thing)
 while thang:
@@ -13,9 +13,8 @@ while thang:
         elif op == "+":
             numthing += int(num)
         if numthing not in listthing:
-            listthing.append(numthing)
+            listthing.add(numthing)
         else:
-            print(numthing)
             thang = False
             break
 
