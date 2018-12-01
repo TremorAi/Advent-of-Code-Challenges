@@ -40,13 +40,13 @@ ipcMain.on("ondragstart", (event, filePath) => {
     });
     rl.setMaxListeners(5000);
     rl.on("line", line => {
-      lines.push(line);
+      lines.push(parseInt(line));
     });
     rl.on("close", () => {
       var num = 0;
       while (thang) {
         for (let line of lines) {
-          num += parseInt(line);
+          num += line;
           if (listthing.has(num)) {
             console.log("HELP?");
             thang = false;
