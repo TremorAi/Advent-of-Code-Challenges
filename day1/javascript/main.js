@@ -33,27 +33,31 @@ ipcMain.on("ondragstart", (event, filePath) => {
   readFile(filePath);
 
   function readFile(filePath) {
+    let lines = [];
     const rl = readline.createInterface({
       input: fs.createReadStream(filePath),
       crlfDelay: Infinity
     });
     rl.setMaxListeners(5000);
     rl.on("line", line => {
-      if (line[0] === "+") {
-        var tht = line.slice(1, line.length);
-        numthing += Number(tht);
-      } else if (line[0] === "-") {
-        var tht = line.slice(1, line.length);
-        numthing -= Number(tht);
-      }
-      event.sender.send("fileData", numthing);
-      if (line in listthing) {
-        thang = false;
-        event.sender.send("fileData", numthing);
-      } else {
-        listthing.add(numthing);
+      lines.push(line);
+    });
+    rl.on("close", () => {
+      var num = 0;
+      while (thang) {
+        for (let line of lines) {
+          num += parseInt(line);
+          if (listthing.has(num)) {
+            console.log("HELP?");
+            thang = false;
+            event.sender.send("fileData", num);
+            break;
+          } else {
+            listthing.add(num);
+          }
+        }
       }
     });
-    numthing = 0;
   }
 });
+app.on("ready", createWindow);
