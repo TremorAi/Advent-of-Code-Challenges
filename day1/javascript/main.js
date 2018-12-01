@@ -53,29 +53,7 @@ ipcMain.on("ondragstart", (event, filePath) => {
       } else {
         listthing.add(numthing);
       }
-
-      // console.log(`Line from file: ${line}`);
     });
     numthing = 0;
-
-    // fs.readFile(filepath, "utf-8", (err, data) => {
-    //   if (err) {
-    //     alert("An error ocurred reading the file :" + err.message);
-    //     return;
-    //   }
-    //   // handle the file content
-    //   event.sender.send("fileData", data);
-    // });
   }
 });
-
-ipcMain.on("clickedbutton", (event, data) => {
-  dialog.showSaveDialog(
-    { filters: [{ name: "text", extensions: ["txt"] }] },
-    function(fileName) {
-      if (fileName === undefined) return;
-      fs.writeFile(fileName, data, function(err) {});
-    }
-  );
-});
-app.on("ready", createWindow);
