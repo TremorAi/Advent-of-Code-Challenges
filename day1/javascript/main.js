@@ -6,6 +6,10 @@ let fs = require("fs");
 var readline = require("readline");
 var stream = require("stream");
 
+var numthing = 0;
+var listthing = new Set();
+var thang = true;
+
 let win;
 
 function createWindow() {
@@ -75,23 +79,3 @@ ipcMain.on("clickedbutton", (event, data) => {
   );
 });
 app.on("ready", createWindow);
-
-var numthing = 0;
-var listthing = new Set();
-var thang = true;
-function solvething(line) {
-  if (line[0] === "+") {
-    var tht = line.slice(1, line.length);
-    numthing += Number(tht);
-    console.log(numthing);
-  } else if (line[0] === "-") {
-    var tht = line.slice(1, line.length);
-    numthing -= Number(tht);
-    console.log(numthing);
-    console.log(thang);
-  }
-  if (line in listthing) {
-  } else {
-    listthing.add(numthing);
-  }
-}
