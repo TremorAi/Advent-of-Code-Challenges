@@ -1,1 +1,3 @@
-# Advent-of-Code-Challenges sdafsdasfda
+# Advent-of-Code-Challenges
+
+Coding challenges from https://adventofcode.com/
