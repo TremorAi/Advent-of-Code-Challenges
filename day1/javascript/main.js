@@ -95,25 +95,3 @@ function solvething(line) {
     listthing.add(numthing);
   }
 }
-
-function thingthang() {
-  rl.on("line", line => {
-    if (line[0] === "+") {
-      var tht = line.slice(1, line.length);
-      numthing += Number(tht);
-      console.log(line);
-    } else if (line[0] === "-") {
-      var tht = line.slice(1, line.length);
-      numthing -= Number(tht);
-      console.log(line);
-    }
-    if (line in listthing) {
-      thang = false;
-      event.sender.send("fileData", numthing);
-    } else {
-      listthing.add(numthing);
-    }
-
-    // console.log(`Line from file: ${line}`);
-  });
-}
