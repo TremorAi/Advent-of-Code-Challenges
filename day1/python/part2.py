@@ -19,5 +19,5 @@ while thang:
         else:
             thang = False
             break
-print(count)
+print(f"It took: {count} to get the correct answer")
 print(numthing)
