@@ -27,5 +27,5 @@ for line in file_input:
             for i in range(len(line)):
                 if line[i] == line2[i]:
                     newline += line[i]
-            print(f"{newline}}")
+            print(f"{newline}")
             break
