@@ -25,6 +25,14 @@ for line in file_input:
             grid_array[top + h, left + w] += 1
             thing[top + h, left + w] = id
 
+def patch_is_unique(top, left, width, height):
+    for w in range(width):
+        for h in range(height):
+            if grid_array[top + h, left + w] > 1:
+                return False
+    return True
+
+
 for line in file_input:
     line_split = line.split(" ")
     id = line_split[0]
@@ -38,19 +46,9 @@ for line in file_input:
     width = int(width_height[0])
     height = int(width_height[1])
     # print(f"left: {left} top: {top}")
-    collision = False
-    for w in range(width):
-        for h in range(height):
-            if grid_array[top + h, left + w] > 1:
-                collision = True
-                list_STUFFFFFF.discard(thing[top + h, left + w])
-                break
+    if patch_is_unique(top, left, width, height):
+        print(line)
 
-    if collision == False:
-        list_STUFFFFFF.add(id)
-
-
-print(list_STUFFFFFF)
 
 sum_area = grid_array >= 2
 print(sum_area.sum())
