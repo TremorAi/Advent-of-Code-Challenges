@@ -48,6 +48,7 @@ for line in file_input:
     # print(f"left: {left} top: {top}")
     if patch_is_unique(top, left, width, height):
         print(line)
+        return
 
 
 sum_area = grid_array >= 2
